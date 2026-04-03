@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useCallback } from "react";
 
 // ─── CSS ─────────────────────────────────────────────────────────────────────
@@ -1622,7 +1623,7 @@ function AIPage() {
 
   return (
     <div className="fade">
-      <div className="card" style={{padding:0,overflow:"hidden"}}>
+      <div className="card" style={{pa:0,overflow:"hidden"}}>
         <div style={{padding:"12px 18px",borderBottom:"1px solid var(--border)",display:"flex",alignItems:"center",gap:10}}>
           <span style={{color:"var(--ace)",fontSize:15}}>✦</span>
           <span style={{fontSize:14,fontWeight:700,color:"var(--text)"}}>ACE Assistant</span>
@@ -1740,6 +1741,21 @@ export default function App() {
             {page==="ai"         && <AIPage/>}
           </div>
         </main>
+      </div>
+    </>
+  );
+}
+export default function Home() {
+  const [page, setPage] = useState("dashboard");
+
+  return (
+    <>
+      <style>{CSS}</style>
+
+      <div className="app">
+        {page === "dashboard" && <Dashboard setPage={setPage} />}
+        {page === "emissions" && <EmissionsPage />}
+        {page === "secr" && <SECRPage setPage={setPage} />}
       </div>
     </>
   );
